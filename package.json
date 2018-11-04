@@ -1,0 +1,21 @@
+{
+  "name": "lambda-is-authorized",
+  "version": "1.0.0",
+  "author": "Michael Bausano <bausanomichal@gmail.com>",
+  "license": "MIT",
+  "description": "Checks if user token is valid.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prizeprofile/lambda-is-authorized"
+  },
+  "scripts": {
+    "create:stage": "claudia create --name stage-is-authorized --region eu-west-1 --handler index.handler --role arn:aws:iam::365488455739:role/lambda_basic_execution --config claudia-stage.json",
+    "create:prod": "claudia create --name prod-is-authorized --region eu-west-1 --handler index.handler --role arn:aws:iam::365488455739:role/lambda_basic_execution --config claudia-prod.json",
+    "deploy:stage": "claudia update --config claudia-stage.json",
+    "deploy:prod": "claudia update --config claudia-prod.json"
+  },
+  "devDependencies": {
+    "claudia": "^5.1.1"
+  }
+}
